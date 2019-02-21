@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="./lib/normalize.css">
+  <link rel="stylesheet" href="./css/main.css">
+  <title>做点什么</title>
+</head>
+
+<body>
+  <div id="main">
+    <div class="navbar">
+      <h1>做点什么</h1>
+    </div>
+    <div class="header">
+      <p>列出你的今日计划吧</p>
+    </div>
+    <form @submit.prevent="merge" id="task-form">
+      <div class="wrap">
+        <input v-model="current.title" ref="refinput" id="task-input" type="text" autocomplete="off"></input>
+        <div v-if="current.id" class="detail">
+          <textarea v-model="current.desc"></textarea>
+          <input v-model="current.alert_at" type="datetime-local">
+          <button class="primary" type="submit">提交</button>
+        </div>
+      </div>
+    </form>
+    <div class="task-list">
+      <div class="wrap">
+        <div class="segment-title">未完成</div>
+        <task v-if="!todo.completed" :todo="todo" v-for="todo in list">
+        </task>
+      </div>
+    </div>
+    <div class="task-list">
+      <div class="wrap">
+        <div class="segment-title">已完成</div>
+        <div v-if="todo.completed" v-for="(todo,index) in list" class="item completed">
+          <div @click="toggle_complete(todo.id)" class="toggle-complete">
+            <div>
+            </div>
+          </div>
+          <span class="title">{{todo.title}}</span>
+          <button @click="remove(todo.id)">删除</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="./lib/vue.js"></script>
+  <script src="./js/myStorage.js"></script>
+  <script src="./js/main.js"></script>
+</body>
+
+</html>

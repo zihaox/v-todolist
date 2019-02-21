@@ -1,0 +1,161 @@
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  position: relative;
+}
+
+body {
+  color: #444;
+}
+
+input,
+button,
+textarea {
+  border: 1px solid rgba(0, 0, 0, .1);
+  border-radius: 3px;
+  padding: 10px;
+}
+
+input,
+textarea {
+  outline: none;
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+  -webkit-box-shadow: 0 2px 3px rgba(0, 0, 0, .1);
+  -moz-box-shadow: 0 2px 3px rgba(0, 0, 0, .1);
+  box-shadow: 0 2px 3px rgba(0, 0, 0, .1);
+}
+
+input:focus,
+textarea:focus {
+  border: 1px solid #41b883;
+}
+
+button.primary {
+  background: #41b883;
+  color: #253342;
+}
+
+.wrap {
+  max-width: 500px;
+  margin: 0 auto;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.navbar,
+.header {
+  text-align: center;
+}
+
+.navbar {
+  background: #41b883;
+  color: #f7f3ea;
+  padding: 20px 0;
+}
+
+.navbar h1 {
+  color: #35495e;
+  margin: 0;
+}
+
+.header {
+  padding: 20px 0;
+  color: #35495e;
+  font-size: 18px;
+}
+
+#alert-sound {
+  display: none;
+}
+
+.task-list .item {
+  padding: 5px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+
+.task-list .item button {
+  padding: 7px;
+  display: none;
+  color: #35495e;
+  background: #fff;
+}
+
+.task-list .item:hover {
+  background: rgba(0, 0, 0, .03);
+}
+
+.task-list .item:hover button {
+  display: inline-block;
+}
+
+.task-list .item .title {
+  padding: 10px;
+}
+
+.task-list .item .detail {
+  display: block;
+  font-size: 80%;
+  color: #666;
+}
+
+.task-list .item>* {
+  padding: 5px;
+  display: inline-block;
+  line-height: 1.2;
+  vertical-align: middle;
+}
+
+.toggle-complete {
+  width: 35px;
+  height: 35px;
+  background: #41b883;
+}
+
+.toggle-complete div{
+  width: 25px;
+  height: 25px;
+  background: #35495e;
+  transition: all 0.2s;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.toggle-complete,.toggle-complete div{
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+}
+
+.toggle-complete:hover div {
+  width: 35px;
+  height: 35px;
+}
+
+.completed .toggle-complete {
+  background: #41b883;
+}
+
+.completed .toggle-complete div {
+  width: 35px;
+  height: 35px;
+  background: #35495e;
+}
+
+.completed .toggle-complete div:hover {
+  width: 25px;
+  height: 25px;
+}
+
+.segment-title {
+  color: #aaa;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  font-weight: lighter;
+}
