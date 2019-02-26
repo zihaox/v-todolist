@@ -35,12 +35,14 @@
     data: {
       list: [],
       current: {},
+      last_id: 0
     },
 
     // 初始化各项
     mounted: function () {
       var me = this;
       this.list = ms.get('list') || [];
+      this.last_id = ms.get('last_id') || this.last_id;
 
       setInterval(function () {
         me.check_alerts();
@@ -89,7 +91,9 @@
           if (!title && title !== 0) return;
           // 深拷贝current对象
           var todo = copy(this.current);
-          todo.id = this.next_id();
+          this.last_id++;
+          ms.set('last_id', this.last_id);
+          todo.id = this.last_id;
           this.list.push(todo);
         }
         // 在每次merge后清空输入框
